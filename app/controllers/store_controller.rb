@@ -12,7 +12,6 @@ class StoreController < ApplicationController
 
   def search
     @products = Product.by_keyword(params[:q]).paginate(page: params[:page])
-    #render :text =>  '<pre>' + @products.to_yaml and return
     add_breadcrumb I18n.t('store.search')
   end
 
