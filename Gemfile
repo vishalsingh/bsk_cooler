@@ -50,11 +50,12 @@ gem 'draper', '~> 1.3'
 
 gem 'sms-club', '~> 0.3'
 
-gem 'mysql2'
+
 #gem 'pg', '~> 0.17.1'
 
 group :development, :test do
-  gem 'sqlite3'
+  #gem 'sqlite3'
+  gem 'mysql2'
   gem 'spring', '~> 1.1.3'
   gem 'capybara', '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.3.0'
@@ -72,6 +73,7 @@ group :development do
 end
 
 group :production do
+  gem 'pg'
   gem 'unicorn', '~> 4.8.3'
   gem 'redis-rails'
 end
