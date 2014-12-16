@@ -1,0 +1,70 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  common:
+    toggle_menu: Show menu
+    toggle_categories: Show categories
+    name: Name
+    price: Price
+    quantity: Quantity
+    total: Total
+    phone: Phone
+    email: Email
+    address: Address
+    breadcrumb_home_name: Home
+    about_shop: About
+    sign_in: Sign in
+    sign_out: Sign out
+    shipping_and_payment: Shipping and payment
+    store_name: Online Megastore
+    profile: Profile
+    form_validation_error_message: 'There was an error with your submission:'
+    submit: Submit
+    not_found_message: 'Sorry, but you are looking for something that isn`t here'
+    internal_server_error_message: 'Ooops... something went wrong'
+  uploader:
+    upload_file: Upload file
+  store:
+    brand: Brand
+    checkout: Checkout
+    search_input_placeholder: Search...
+    add_to_cart_button_text: Add to cart
+    my_cart_link_text: My cart
+    your_cart_label: Your cart
+    thanks_for_your_order_message: Thanks for your order!
+    we_have_received_your_order_text: 'we have received your order, our manager will contact you soon.'
+    order_details: Order details
+    submit_order_button_text: Submit order
+    search: Search
+    cart_empty_message: Your cart is empty
+    description: Description
+    specifications: Specifications
+    product_code: Product code
+    out_of_stock: Item sold out
+    more_info: Details
+  checkout:
+    order_successful_submit: Your order was submitted successfully
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        unit: "Rs"

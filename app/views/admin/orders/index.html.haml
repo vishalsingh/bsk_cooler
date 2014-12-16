@@ -1,0 +1,39 @@
+- provide(:title, t('admin.orders.orders'))
+%h2
+  = t('admin.orders.orders')
+  (#{@orders.count})
+
+%div{role: "tabpanel"}
+  %ul.nav.nav-tabs
+    %li{class: ('active' unless @selected_state ) }
+      =link_to "All", admin_orders_path(state: 'all')
+    - Order.aasm.states.each do |state|
+      %li{class: ('active' if @selected_state == state.name.to_s ) }
+        =link_to state.display_name, admin_orders_path(state: state.name)
+
+.tab-content
+  %div.tab-pane.active#home{role: "tabpanel"}
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Order
+      %th Placed at
+      %th Placed by
+      %th Payment status
+      %th Fulfillment status
+      %th Total
+  %tbody
+    = cache @orders do
+      - @orders.each do |order|
+        = cache order do
+          %tr{:class => "order-#{order.aasm.current_state.to_s.dasherize}"}
+            %td= link_to "##{order.id}", admin_order_path(order)
+            %td= time_tag order.created_at
+            %td= link_to order.user.full_name, admin_user_path(order.user)
+            %td
+              = label_span order.invoice.aasm.human_state, type: order.invoice.paid? ? 'default' : 'warning'
+            %td
+              = label_span order.shipment.aasm.human_state, type: order.shipment.shipped? ? 'default' : 'warning'
+            %td= number_to_currency order.total_price
+= will_paginate @orders, renderer: BootstrapPagination::Rails

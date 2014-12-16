@@ -1,0 +1,28 @@
+- provide(:title, t('admin.brands.brands'))
+%h2
+  = t('admin.brands.brands')
+  (#{@brands.count})  #{link_to t('admin.common.create_new'), new_admin_brand_path, class: 'btn btn-primary'}
+%table.table.table-hover
+  %thead
+    %tr
+      %th Id
+      %th Name
+      %th Description
+      %th Products count
+      %th Created
+      %th Updated
+  %tbody#sortable{ data: { 'sort-url' => order_admin_brands_path } }
+    = cache @brands do
+      - @brands.each do |brand|
+        = cache brand do
+          %tr{ data: { id: brand.id } }
+            %td
+              = glyphicon('glyphicon-resize-vertical')
+              = link_to "##{brand.id}", admin_brand_path(brand)
+            %td= link_to truncate(brand.name), admin_brand_path(brand)
+            %td= truncate brand.description
+            %td= brand.products.count
+            %td= brand.created_at.to_formatted_s(:short)
+            %td= brand.updated_at.to_formatted_s(:short)
+
+= will_paginate @brands, renderer: BootstrapPagination::Rails

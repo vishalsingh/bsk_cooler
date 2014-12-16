@@ -1,0 +1,8 @@
+.row
+  .col-md-9
+    = cache @order do
+      = render 'order_panel'
+      = render 'order_activity'
+  .col-md-3
+    = cache [@order.user, @order.address] do
+      = render 'customer_info_panel'

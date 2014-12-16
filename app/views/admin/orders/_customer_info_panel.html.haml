@@ -1,0 +1,27 @@
+.panel.panel-default
+  .panel-heading
+    %span.panel-title Customer info
+  .panel-body
+    %dl
+      %dt Name
+      %dd= link_to @order.user.full_name, admin_user_path(id: @order.user.id)
+      %dt Created at
+      %dd= time_tag @order.user.created_at
+      %dt Email
+      %dd= mail_to @order.user.email
+.panel.panel-default
+  .panel-heading
+    %span.panel-title Shipping address
+  .panel-body
+    %dl
+      %dt City
+      %dd
+        = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :city
+      %dt Street
+      %dd
+        = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :street
+      %dt Phone
+      %dd
+        = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :phone
+
+    #map-delivery{data: {address: "#{@order.address.city} #{@order.address.street}"}}

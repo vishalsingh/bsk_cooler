@@ -1,0 +1,29 @@
+- provide(:title, "#{t('admin.categories.edit_category').capitalize} #{@category.name}")
+
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      = t('admin.categories.edit_category')
+  .panel-body
+    = form_for @category, url: admin_category_path(@category) do |f|
+      = render 'layouts/validation_errors', model: @category
+      = render 'admin/categories/category_fields', f: f
+      .form-group
+        = f.submit t('admin.common.save'), class: 'btn btn-primary'
+        = link_to t('admin.common.cancel'), admin_category_path(@category), class: 'btn btn-default'
+
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title= t('admin.product_attribute_names.attributes')
+      .panel-body
+        = form_for ProductAttributeName.new, url: admin_category_product_attribute_names_path(category_id: @category.id), remote: true, html: {class: 'form-inline'} do |f|
+          %ul#sortable.list-group{ data: { 'sort-url' => order_admin_category_product_attribute_names_path(category_id: @category.id) } }
+            = render @category.product_attribute_names
+          .form-group
+            = f.text_field :name, class: 'form-control'
+            = f.check_box :filterable
+            = f.label :filterable
+          .pull-right
+            = f.submit t('admin.product_attribute_names.add_product_attribute'), class: 'btn btn-default'

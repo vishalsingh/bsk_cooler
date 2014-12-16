@@ -1,0 +1,22 @@
+development:
+  adapter: mysql2
+  host: localhost
+  database: ror_commerce_development
+  username: root
+  pool: 5
+  timeout: 5000
+
+
+test:
+  adapter: mysql2
+  host: localhost
+  database: ror_commerce_test
+  username: root
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: mysql2
+  database: ror_commerce_production
+  pool: 5
+  timeout: 5000

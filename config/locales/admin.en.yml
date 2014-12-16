@@ -1,0 +1,106 @@
+en:
+  admin:
+    common:
+      admin_panel: Admin panel
+      created_at: Created at
+      updated_at: Updated at
+      create_new: Create new
+      save: Save
+      destroy: Destroy
+      edit: Edit
+      remove: Remove
+      delete: Delete
+      confirm: Are you sure?
+      create: Create
+      cancel: Cancel
+      id: Id
+      upload_images: Upload images
+    orders:
+      orders_total: Orders total
+      orders_list: Orders list
+      orders: Orders
+      events:
+        order:
+          cancel: Cancel
+          resume: Resume
+        shipment:
+          prepare: Ready to ship
+          ship: Ship order
+          return: Return shipment
+        invoice:
+          pay: Mark as paid
+          refund: Refund payment
+
+    categories:
+      category: Category
+      categories: Categories
+      edit_category: Edit category
+      category_deleted: Category deleted
+      category_updated: Category updated
+      create_category: Create category
+      categories_list: Categories list
+      category_saved: Category saved
+      active: Active
+      inactive: Inactive
+    product_attribute_names:
+      attributes: Attributes
+      product_attribute_saved: Product attribute saved
+      product_attribute_updated: Product attribute updated
+      product_attribute_deleted: Product attribute deleted
+      add_product_attribute: Add attribute
+    products:
+      product_list: Product list
+      product_updated: Product updated
+      product_saved: Product saved
+      product_deleted: Product deleted
+      product_cloned: Product cloned
+      products: Products
+      clone:  Clone
+      product: Product
+      create_product: Create product
+      edit_product: Edit product
+      product_images: Product images
+      active: Active
+      inactive: Inactive
+    pages:
+      pages: Pages
+      create_page: Create page
+      page_saved: Page saved
+      page_updated: Page updated
+      page_deleted: Page deleted
+      page_delete_error: Error deleting page
+      edit_page: Edit page
+    brands:
+      brands: Brands
+      brand_saved: Brand saved
+      brand_updated: Brand updated
+      brand_deleted: Brand deleted
+      brands_list: Brands list
+      brand: Brand
+      create_brand: Create brand
+      edit_brand: Edit brand
+    users:
+      email: Email
+      users: Users
+      sign_in_count: Sign in count
+      last_sign_in_at: Last sign in at
+      last_sign_in_ip: Last sign in ip
+      phone: Phone
+      user_updated: User updated
+      users_list: Users list
+      user_summary: User summary
+      full_name: Full name
+      register_date: Register date
+      no_orders_message: User doesn't have any orders
+    preferences:
+      heading: My preferences
+      page_title: Preferences
+      updated: Your preferences updated
+    sidebar:
+      orders: Orders
+      products: Products
+      categories: Categories
+      brands: Brands
+      customers: Customers
+      preferences: My preferences
+      open_store: Open store

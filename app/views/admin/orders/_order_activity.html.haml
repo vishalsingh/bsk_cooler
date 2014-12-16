@@ -1,0 +1,13 @@
+=cache @order.order_events do
+  #order-activity.order-event
+    - if @order.order_events.any?
+      %h4#timeline Events
+      %ul.timeline
+        = render @order.order_events
+    - else
+      %h4#timeline No events :(
+    = form_for OrderEvent.new, url: admin_order_order_events_path(order_id: @order.id), remote: true do |f|
+      .form-group
+        = f.text_area :note, placeholder: "Enter your note here...", class: 'form-control'
+      .form-group.pull-right
+        = f.submit "Add note", class:'btn btn-primary'

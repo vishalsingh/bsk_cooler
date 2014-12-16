@@ -1,0 +1,51 @@
+= render 'layouts/validation_errors', model: @order
+.row
+  .col-md-4
+    = form_for @order, url: orders_path, method: :post do |f|
+      = f.fields_for :user do |user_fields|
+        .row
+          .form-group.col-md-6
+            = user_fields.label :first_name
+            = user_fields.text_field :first_name, class: 'form-control', readonly: user_signed_in?
+          .form-group.col-md-6
+            = user_fields.label :last_name
+            = user_fields.text_field :last_name, class: 'form-control', readonly: user_signed_in?
+        .form-group
+          = user_fields.label :email
+          = user_fields.text_field :email, class: 'form-control', readonly: user_signed_in?
+      = f.fields_for :address do |address_fields|
+        .form-group
+          = address_fields.label :phone
+          = address_fields.text_field :phone, class: 'form-control'
+        .form-group
+          = address_fields.label :street
+          = address_fields.text_field :street, class: 'form-control'
+        .form-group
+          = address_fields.label :city
+          = address_fields.text_field :city, class: 'form-control'
+      .form-group
+        = f.label :note
+        = f.text_area :note, class: 'form-control'
+      .form-group
+        = f.submit t('store.submit_order_button_text'), class: 'btn btn-success'
+  .col-md-6
+    .order-items
+      %table.table.table-hover
+        %thead
+          %tr
+            %th= t('common.name')
+            %th= t('common.price')
+            %th= t('common.quantity')
+            %th= t('common.total')
+        %tbody
+          - @cart.cart_items.each do |cart_item|
+            %tr
+              %td= cart_item.product.name
+              %td= number_to_currency cart_item.product.price
+              %td= cart_item.quantity
+              %td= number_to_currency(cart_item.product.price * cart_item.quantity)
+          %tr
+            %td
+            %td
+            %td
+            %td= number_to_currency @cart.total_price

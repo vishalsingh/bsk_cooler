@@ -1,0 +1,30 @@
+- provide(:title, t('admin.pages.pages'))
+%h2
+  = t('admin.pages.pages')
+  (#{@pages.count})  #{link_to t('admin.common.create_new'), new_admin_page_path, class: 'btn btn-primary'}
+%table.table.table-hover
+  %thead
+    %tr
+      %th Id
+      %th Title
+      %th Text
+      %th Visibility
+      %th Created
+      %th Updated
+  %tbody#sortable{ data: { 'sort-url' => order_admin_pages_path } }
+    - @pages.each do |page|
+      %tr{ data: { id: page.id } }
+        %td
+          = glyphicon('glyphicon-resize-vertical')
+          = link_to "##{page.id}", admin_page_path(page)
+        %td= link_to truncate(page.title), admin_page_path(page)
+        %td= link_to truncate(page.text), admin_page_path(page)
+        %td
+          - if page.visible?
+            = label_span t('admin.pages.visible'), type: 'success'
+          - else
+            = label_span t('admin.pages.hidden')
+        %td= page.created_at.to_formatted_s(:short)
+        %td= page.updated_at.to_formatted_s(:short)
+
+= will_paginate @pages, renderer: BootstrapPagination::Rails

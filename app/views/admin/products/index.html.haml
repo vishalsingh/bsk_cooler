@@ -1,0 +1,47 @@
+- provide(:title, t('admin.products.product_list'))
+%h2
+  = t('admin.products.product')
+  (#{@products.count})  #{link_to t('admin.common.create_new'), new_admin_product_path, class: 'btn btn-primary'}
+.panel-body
+  = search_form_for @q, html: {class: 'form-inline'}, url: admin_products_path do |f|
+    .form-group
+      = f.text_field :name_cont, placeholder: 'Name contains', class: 'form-control'
+    .form-group
+      = f.text_field :description_cont, placeholder: 'Description contains', class: 'form-control'
+    .form-group
+      = f.text_field :price_gteq, placeholder: 'Price min', class: 'form-control'
+    .form-group
+      = f.text_field :price_lteq, placeholder: 'Price max', class: 'form-control'
+    .form-group
+      = f.submit class: 'btn btn-default'
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Id
+        %th Name
+        %th Description
+        %th Price
+        %th Category
+        %th Brand
+        %th Active
+        %th Created
+        %th Updated
+    %tbody
+    = cache @products do
+      - @products.each do |product|
+        = cache product do
+          %tr
+            %td= link_to "##{product.id}", admin_product_path(product)
+            %td= link_to truncate(product.name), admin_product_path(product)
+            %td= truncate product.description
+            %td= number_to_currency product.price
+            %td= link_to product.category.try(:name), admin_category_path(product.category) unless product.category.nil?
+            %td= link_to product.brand.try(:name), admin_brand_path(product.brand) unless product.brand.nil?
+            %td
+              - if product.active?
+                = label_span t('admin.products.active'), type: 'success'
+              - else
+                = label_span t('admin.products.active')
+            %td= product.created_at.to_formatted_s(:short)
+            %td= product.updated_at.to_formatted_s(:short)
+  = will_paginate @products, renderer: BootstrapPagination::Rails
