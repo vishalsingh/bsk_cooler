@@ -75,7 +75,7 @@ end
 group :production do
   gem 'pg'
   #gem 'unicorn', '~> 4.8.3'
-  #gem 'redis-rails'
+  gem 'redis-rails'
 end
 
 group :doc do
