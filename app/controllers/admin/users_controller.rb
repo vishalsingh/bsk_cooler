@@ -1,10 +1,9 @@
 class Admin::UsersController < Admin::AdminController
 
-  #add_breadcrumb I18n.t('admin.users.users'), :admin_users_path
+  add_breadcrumb I18n.t('admin.users.users'), :admin_users_path
 
   def index
-    @users = User.all.reverse_order.includes(orders: [:order_items])
-                 .paginate(page: params[:page])
+    @users = User.all.paginate(page: params[:page])
   end
 
   def show
