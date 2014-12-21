@@ -49,6 +49,7 @@ gem 'haml-rails'
 gem 'draper', '~> 1.3'
 
 gem 'sms-club', '~> 0.3'
+gem 'faker', '~> 1.3.0'
 
 
 #gem 'pg', '~> 0.17.1'
@@ -60,7 +61,7 @@ group :development, :test do
   gem 'capybara', '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.3.0'
   gem 'rspec-rails', '~> 3.1.0'
-  gem 'faker', '~> 1.3.0'
+  
   gem 'debugger'
 end
 
