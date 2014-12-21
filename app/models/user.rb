@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   scope :admins, -> { where(admin: true) }
 
-  ##after_create :notify_created
+  #after_create :notify_created
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
