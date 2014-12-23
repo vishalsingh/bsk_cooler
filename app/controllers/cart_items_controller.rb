@@ -40,8 +40,8 @@ class CartItemsController < ApplicationController
 
   def increase
     cart_item = @cart.cart_items.find(params[:id])
-    if (cart_item.quantity >= params[:product_quantity].to_i)
-      @error_message = "Item quantity should not be more then available quantity "
+    if (params[:track_inventory] == 'true' and cart_item.quantity >= params[:product_quantity].to_i)
+      @error_message = "Item quantity should not be more then available quantity"
     else
       @error_message = ""
      cart_item.update(quantity: cart_item.quantity + 1)

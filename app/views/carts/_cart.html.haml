@@ -34,7 +34,7 @@
                   class: 'btn btn-xs btn-default'                                |
                 = item.quantity
                 = link_to glyphicon('glyphicon-plus'), |
-                  increase_cart_item_path(item, :product_quantity => item.product.quantity),                                |
+                  increase_cart_item_path(item, :product_quantity => item.product.quantity, :track_inventory => item.product.track_inventory),                                |
                   method: :post,                                                |
                   remote: true,                                                 |
                   class: 'btn btn-xs btn-default'                               |
