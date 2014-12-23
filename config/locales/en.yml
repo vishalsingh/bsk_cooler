@@ -35,7 +35,7 @@ en:
     sign_in: Sign in
     sign_out: Sign out
     shipping_and_payment: Shipping and payment
-    store_name: Online Megastore
+    store_name: Online cooler store
     profile: Profile
     form_validation_error_message: 'There was an error with your submission:'
     submit: Submit
@@ -53,7 +53,7 @@ en:
     thanks_for_your_order_message: Thanks for your order!
     we_have_received_your_order_text: 'we have received your order, our manager will contact you soon.'
     order_details: Order details
-    submit_order_button_text: Submit order
+    submit_order_button_text: Submit Order
     search: Search
     cart_empty_message: Your cart is empty
     description: Description
@@ -61,6 +61,9 @@ en:
     product_code: Product code
     out_of_stock: Item sold out
     more_info: Details
+    continue_shopping_button: Continue Shopping
+    checkout_button: Checkout
+    remove_from_cart_button: Remove
   checkout:
     order_successful_submit: Your order was submitted successfully
   number:
