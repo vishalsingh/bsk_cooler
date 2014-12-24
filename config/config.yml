@@ -65,4 +65,4 @@ production:
       address: smtp.gmail.com
       user: vishal.singh030@gmail.com
       port: 587
-      password: Vishu_2011
+      password: test
