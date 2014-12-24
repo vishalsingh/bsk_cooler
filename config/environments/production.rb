@@ -30,7 +30,7 @@ Ecomm::Application.configure do
   config.assets.compile = true
 
   # Generate digests for assets URLs.
-  config.assets.digest = true
+  config.assets.digest = false
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
@@ -43,7 +43,7 @@ Ecomm::Application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -72,6 +72,17 @@ Ecomm::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  config.action_mailer.default_url_options = { host: AppConfig.mailer.host }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address:   AppConfig.mailer.smtp.address,
+    port:      AppConfig.mailer.smtp.port,
+    user_name: AppConfig.mailer.smtp.user,
+    password:  AppConfig.mailer.smtp.password,
+    enable_starttls_auto: true
+  }
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 

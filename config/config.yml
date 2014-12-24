@@ -62,7 +62,7 @@ production:
     default_from: info@domain.com
     host: domain.com
     smtp:
-      address: smtp.mandrillapp.com
-      user: username
+      address: smtp.gmail.com
+      user: vishal.singh030@gmail.com
       port: 587
-      password: password
+      password: Vishu_2011
