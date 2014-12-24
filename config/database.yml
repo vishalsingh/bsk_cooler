@@ -16,6 +16,12 @@ test:
   timeout: 5000
 
 production:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  database: ror_commerce_development
   pool: 5
+  timeout: 5000
+
+  # production:
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: 5
