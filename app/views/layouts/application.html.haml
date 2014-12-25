@@ -12,13 +12,11 @@
       #tophead.row
         .col-md-2.col-xs-6
           = link_to image_tag('logo.jpg'), root_path
-        .col-md-3.col-md-offset-1.col-xs-6
-          #header-contacts.lead
-            %i.glyphicon.glyphicon-earphone
-            +91-9988875133
         .col-md-6.col-xs-12
           = render 'layouts/search_form'
       .clearfix.visible-xs
+      -if current_page?(root_url)
+        = render 'layouts/carousal'
       = render 'layouts/second_menu'
       = render 'layouts/flash'
       = yield
