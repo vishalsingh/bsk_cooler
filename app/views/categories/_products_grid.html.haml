@@ -16,7 +16,7 @@
                 %p
                   - if product.in_stock?
                     %strong= number_to_currency product.price
-                    = link_to t('store.add_to_cart_button_text'), cart_items_path(product_id: product.id), class: 'btn btn-success', remote: true, method: :post
+                    = link_to t('store.add_to_cart_button_text'), cart_items_path(product_id: product.id), class: 'btn btn-primary', remote: true, method: :post
                   - else
                     %strong.text-muted= number_to_currency product.price
                     = link_to t('store.more_info'), seo_product_path(product, product.seo_name), class: 'btn btn-default'

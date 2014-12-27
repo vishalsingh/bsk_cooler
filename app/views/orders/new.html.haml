@@ -22,8 +22,17 @@
           = address_fields.label :street
           = address_fields.text_field :street, class: 'form-control'
         .form-group
+          = address_fields.label :state
+          = address_fields.select :state, STATES, {:prompt => true}, class: 'form-control'
+        .form-group
           = address_fields.label :city
           = address_fields.text_field :city, class: 'form-control'
+        .form-group
+          = address_fields.label :zipcode
+          = address_fields.text_field :zipcode, class: 'form-control' ,maxlength: 5 
+        .form-group
+          = address_fields.label :landmark
+          = address_fields.text_field :landmark, class: 'form-control'
       .form-group
         = f.label :note
         = f.text_area :note, class: 'form-control'

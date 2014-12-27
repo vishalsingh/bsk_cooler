@@ -14,14 +14,23 @@
     %span.panel-title Shipping address
   .panel-body
     %dl
+      %dt State
+      %dd
+        = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :state
       %dt City
       %dd
         = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :city
       %dt Street
       %dd
         = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :street
+      %dt Zipcode
+      %dd
+        = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :zipcode
+      %dt Landmark
+      %dd
+        = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :landmark
       %dt Phone
       %dd
         = x_editable_for @order.address, admin_order_address_path(@order, @order.address), field: :phone
 
-    #map-delivery{data: {address: "#{@order.address.city} #{@order.address.street}"}}
+    #map-delivery{data: {address: "#{@order.address.state} #{@order.address.zipcode} #{@order.address.city} #{@order.address.street}"}}
