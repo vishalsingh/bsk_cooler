@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order)
           .permit(user_attributes: [:first_name, :last_name, :email],
-                  address_attributes: [:phone, :street, :city], note: {})
+                  address_attributes: [:phone, :street, :city,:state,:zipcode,:landmark], note: {})
   end
 
   def user_params
