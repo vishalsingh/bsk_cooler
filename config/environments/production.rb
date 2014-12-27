@@ -71,18 +71,30 @@ Ecomm::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+  config.action_mailer.default_url_options = { :host => 'https://agile-tor-1455.herokuapp.com/' }
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "gmail.com",
+    :authentication => :login,
+    :user_name => "vishal.singh030@gmail.com",
+    :password => "Vishu_2011"
+}
 
-  config.action_mailer.default_url_options = { host: AppConfig.mailer.host }
+  # config.action_mailer.default_url_options = { host: AppConfig.mailer.host }
 
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address:   AppConfig.mailer.smtp.address,
-    port:      AppConfig.mailer.smtp.port,
-    user_name: AppConfig.mailer.smtp.user,
-    password:  AppConfig.mailer.smtp.password,
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address:   AppConfig.mailer.smtp.address,
+  #   port:      AppConfig.mailer.smtp.port,
+  #   user_name: AppConfig.mailer.smtp.user,
+  #   password:  AppConfig.mailer.smtp.password,
+  #   enable_starttls_auto: true
+  # }
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 

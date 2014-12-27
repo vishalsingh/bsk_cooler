@@ -29,7 +29,7 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :invoice, update_only: true
 
   before_create :build_assotiations, :generate_code, :withdraw_inventory
-  #after_create :notify_customer, :notify_admins
+  after_create :notify_customer, :notify_admins
   after_touch :update_state
 
   aasm do
@@ -67,13 +67,13 @@ class Order < ActiveRecord::Base
     self.code = SecureRandom.hex
   end
 
-  # def notify_customer
-  #   #OrderNotifier.order_received(id).deliver
-  #   #OrderSMSNotifier.order_received(id)
-  # end
+  def notify_customer
+    OrderNotifier.order_received(id).deliver
+    #OrderSMSNotifier.order_received(id)
+  end
 
-  # def notify_admins
-  #   OrderNotifier.order_placed_admin(id).deliver
-  #   OrderSMSNotifier.order_placed_admin(id)
-  # end
+  def notify_admins
+    OrderNotifier.order_placed_admin(id).deliver
+    #OrderSMSNotifier.order_placed_admin(id)
+  end
 end
