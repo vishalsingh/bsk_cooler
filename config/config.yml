@@ -45,7 +45,8 @@ test:
       port: 587
       password: password
 
-# Production configs
+
+# Production config
 production:
   #secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>
   #devise_secret_key: <%= ENV['DEVISE_KEY'] %>
@@ -59,10 +60,10 @@ production:
     from: RailsCommerce
 
   mailer:
-    default_from: info@domain.com
-    host: domain.com
+    default_from: info@bsk.com
+    host: https://agile-tor-1455.herokuapp.com/
     smtp:
       address: smtp.gmail.com
-      user: vishal.singh030@gmail.com
+      user: vishalsmtptest@gmail.com
       port: 587
-      password: test
+      password: bskcooler
