@@ -48,7 +48,7 @@ module Filterable
 
     def by_keyword(keyword)
       #debugger
-      keyword = "%#{keyword}%"
+      #keyword = "%#{keyword}%"
       if Rails.env.production?
         klass.where("products.name ilike #{keyword}")
         #klass.where("products.name ILIKE ? OR products.description ILIKE ?", keyword, keyword)
