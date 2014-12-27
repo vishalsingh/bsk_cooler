@@ -3,3 +3,4 @@ STATES = [ "Punjab",
                "Haryana",
                "Chandigarh"
             ]
+HEADING = ["SERVICE", "POLICIES"]

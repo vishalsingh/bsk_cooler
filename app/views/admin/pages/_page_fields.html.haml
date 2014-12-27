@@ -5,6 +5,20 @@
   = f.label :text
   = f.cktext_area :text, class: 'form-control', rows: 14
 .form-group
+  = f.label :link_type, "Header"
+  = f.radio_button :link_type, true, checked: true
+  = f.label :link_type, "Footer"
+  = f.radio_button :link_type, false
+
+  - if f.object.link_type == false
+    #footer_link_heading.form-group 
+      = f.label :under_heading, "Under Footer Heading"
+      = f.select :under_heading, HEADING, {}, class: 'form-control'
+  - else 
+    #footer_link_heading.form-group{:style => "display: none;"} 
+      = f.label :under_heading, "Under Footer Heading"
+      = f.select :under_heading, HEADING, {}, class: 'form-control'
+.form-group
   = f.label :seo_url
   .input-group
     .input-group-addon= "#{root_url}pages/"
@@ -12,3 +26,15 @@
 .form-group
   = f.check_box :visible
   = f.label :visible
+
+:javascript
+    $(document).ready(function(){
+      $("input:radio[name='page[link_type]']").change(function(){  
+        if(this.value == 'false' && this.checked){
+          $("#footer_link_heading").show();
+        }
+        else{
+          $("#footer_link_heading").hide();
+        }
+      });
+    });

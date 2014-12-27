@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227080922) do
+ActiveRecord::Schema.define(version: 20141227170344) do
 
   create_table "addresses", force: true do |t|
     t.string   "city"
@@ -151,6 +151,8 @@ ActiveRecord::Schema.define(version: 20141227080922) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "weight"
+    t.boolean  "link_type"
+    t.string   "under_heading"
   end
 
   create_table "payment_methods", force: true do |t|
