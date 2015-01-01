@@ -1,8 +1,8 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'rails_commerce'
-set :repo_url, 'git@github.com:pavel-d/RailsCommerce.git'
+set :application, 'bsk_coolers'
+set :repo_url, 'git@github.com:vishalsingh/bsk_cooler.git'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.1.2'
 
@@ -12,7 +12,7 @@ set :rbenv_ruby, '2.1.2'
 set :branch, ENV['BRANCH'] || :master
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/srv/rails_commerce'
+set :deploy_to, '/www/bsk_coolers'
 
 # Default value for :scm is :git
 # set :scm, :git
