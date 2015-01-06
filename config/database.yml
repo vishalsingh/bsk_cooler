@@ -15,15 +15,15 @@ test:
   pool: 5
   timeout: 5000
 
-# production:
-#   adapter: mysql2
-#   database: bskcoole_db
-#   username: bskcoole_admin
-#   password: 39[rp@VkzRl_
-#   pool: 5
-#   timeout: 5000
-
-  production:
-  adapter: postgresql
-  encoding: unicode
+production:
+  adapter: mysql2
+  database: bskcooler_db
+  username: root
+  password: root
   pool: 5
+  timeout: 5000
+
+  # production:
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: 5

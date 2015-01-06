@@ -140,7 +140,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
-    pg (0.17.1)
     polyamorous (1.0.0)
       activerecord (>= 3.0)
     rack (1.5.2)
@@ -301,7 +300,6 @@ DEPENDENCIES
   jquery-ui-rails
   mysql2
   paperclip (~> 4.2.0)
-  pg
   rack-mini-profiler
   rails (= 4.1.8)
   ransack (~> 1.2.3)

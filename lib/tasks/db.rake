@@ -33,7 +33,7 @@ namespace :db do
 
     puts "Creating users..."
 
-    User.create(first_name: 'varun',last_name: 'singh',email: 'admin@admin.com',admin: true, password: '12345678', password_confirmation: '12345678', phone: '+380666018206').save
+    User.create(first_name: 'varun',last_name: 'singh',email: 'bskkurali@gmail.com' ,admin: true, password: 'varun12345', password_confirmation: 'varun12345', phone: '+380666018206').save
 
     User.transaction do
       50.times do

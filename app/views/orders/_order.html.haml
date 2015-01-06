@@ -1,35 +1,92 @@
-.order-items
-  %table.table.table-hover
-    %thead
-      %tr
-        %th= t('common.name')
-        %th= t('common.price')
-        %th= t('common.quantity')
-        %th= t('common.total')
-    %tbody
-      - order.order_items.each do |item|
-        %tr
-          %td= item.product.name
-          %td= number_to_currency item.price
-          %td= item.quantity
-          %td= number_to_currency(item.price * item.quantity)
-      %tr
-        %td
-        %td
-        %td
-        %td= number_to_currency order.total_price
-.order-details
-  %dl.dl-horizontal
-    %dt= t('common.name')
-    %dd
-      = order.user.first_name
-      = order.user.last_name
-    %dt= t('common.phone')
-    %dd= order.address.phone
-    %dt= t('common.email')
-    %dd= order.user.email
-    %dt= t('common.address')
-    %dd
-      = order.address.city
-      %br/
-      = order.address.street
+.container
+  / .row
+  /   .col-xs-12
+  /     .invoice-title
+  /       %h3 Order Details
+  /     .row.shop-tracking-status
+  /       .order-status
+  /         .order-status-timeline
+  /           / class names: c0 c1 c2 c3 and c4
+  /           .order-status-timeline-completion.c3
+  /         .image-order-status.image-order-status-new.active.img-circle
+  /           %span.status Accepted
+  /           .icon
+  /         .image-order-status.image-order-status-active.active.img-circle
+  /           %span.status In progress
+  /           .icon
+  /         .image-order-status.image-order-status-intransit.active.img-circle
+  /           %span.status Shipped
+  /           .icon
+  /         .image-order-status.image-order-status-delivered.active.img-circle
+  /           %span.status Delivered
+  /           .icon
+  /         .image-order-status.image-order-status-completed.active.img-circle
+  /           %span.status Completed
+  /           .icon
+  .row
+    %hr
+    .col-xs-6
+      %address
+        %strong Shipped To:
+        %br
+          = order.user.first_name
+          = order.user.last_name
+          %br
+            %b
+            = order.address.street
+            %br
+              = order.address.city
+              ,
+              = order.address.state
+              -
+              = order.address.zipcode
+            %b 
+              Email:
+            = order.user.email
+            %br
+            %b 
+              Phone:
+            = order.address.phone
+            %br
+            %b 
+              Landmark:
+            = order.address.landmark
+    .col-xs-6.text-right
+      %address
+        %h4 Order Date:
+        March 7, 2014
+               
+  .row
+    .col-md-12
+      .panel.panel-primary
+        .panel-heading
+          %h3.panel-title
+            %strong Order summary
+        .panel-body
+          .table-responsive
+            %table.table.table-condensed
+              %thead
+                %tr
+                  %td
+                    %strong Item
+                  %td.text-center
+                    %strong Price
+                  %td.text-center
+                    %strong Quantity
+                  %td.text-right
+                    %strong Totals
+              %tbody
+                / foreach ($order->lineItems as $line) or some such thing here
+                - order.order_items.each do |item|
+                  %tr
+                    %td= item.product.name
+                    %td.text-center= number_to_currency item.price
+                    %td.text-center= item.quantity
+                    %td.text-right= number_to_currency(item.price * item.quantity)
+                %tr
+                  %td.thick-line
+                  %td.thick-line
+                  %td.thick-line.text-center
+                    %strong Total
+                  %td.thick-line.text-right= number_to_currency order.total_price
+  
