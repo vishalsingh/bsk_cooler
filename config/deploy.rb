@@ -5,14 +5,14 @@ set :application, 'bsk_coolers'
 set :repo_url, 'git@github.com:vishalsingh/bsk_cooler.git'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.1.2'
-
+#set :port, 4444
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 set :branch, ENV['BRANCH'] || :master
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/deploy/bsk_coolers_app'
+set :deploy_to, '/home/deploy/'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -28,8 +28,8 @@ set :deploy_to, '/home/deploy/bsk_coolers_app'
 
 # Default value for :linked_files is []
 #set :linked_files, %w(.env)
-set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+# set :linked_files, %w{config/database.yml}
+# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 
 # Default value for linked_dirs is []
@@ -46,7 +46,8 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      invoke 'init:restart'
+      execute :touch, release_path.join('tmp/restart.txt')
+      #invoke 'init:restart'
     end
   end
 

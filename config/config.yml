@@ -61,7 +61,7 @@ production:
 
   mailer:
     default_from: info@bsk.com
-    host: https://agile-tor-1455.herokuapp.com/
+    host: http://bskcoolers.in/
     smtp:
       address: smtp.gmail.com
       user: vishalsmtptest@gmail.com

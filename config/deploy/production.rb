@@ -14,8 +14,9 @@
 # This can be used to drop a more detailed server definition into the
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
-
-server '104.236.75.107', user: 'root', roles: %w(web app db)
+set :password, ask('Server password:', nil)
+server '104.236.75.107', user: 'deploy', port: 22, password: fetch(:password), roles: %w{web app db}
+#server '104.236.75.107', user: 'deploy', roles: %w(web app db)
 
 
 # Custom SSH Options

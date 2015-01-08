@@ -51,7 +51,7 @@ gem 'draper', '~> 1.3'
 gem 'sms-club', '~> 0.3'
 gem 'faker', '~> 1.3.0'
 
-gem 'mysql2'
+gem 'mysql2'  
 #gem 'pg', '~> 0.17.1'
 
 group :development, :test do

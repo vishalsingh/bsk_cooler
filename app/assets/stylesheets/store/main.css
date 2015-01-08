@@ -1,7 +1,148 @@
+#social:hover {
+          -webkit-transform:scale(1.1); 
+-moz-transform:scale(1.1); 
+-o-transform:scale(1.1); 
+      }
+      #social {
+
+        -webkit-transform:scale(0.8);
+                /* Browser Variations: */
+-moz-transform:scale(0.8);
+-o-transform:scale(0.8); 
+-webkit-transition-duration: 0.5s; 
+-moz-transition-duration: 0.5s;
+-o-transition-duration: 0.5s;
+      }           
+/* 
+    Only Needed in Multi-Coloured Variation 
+                                               */
+      .social-fb:hover {
+        color: #3B5998;
+      }
+      .social-tw:hover {
+        color: #4099FF;
+      }
+      .social-gp:hover {
+        color: #d34836;
+      }
+      .social-em:hover {
+        color: #f39c12;
+      }
+.navbar-custom-2 {
+  background-color: #2d6ca2;
+  border-color: #265b88;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#3a86c8), to(#2d6ca2));
+  background-image: -webkit-linear-gradient(top, #3a86c8, 0%, #2d6ca2, 100%);
+  background-image: -moz-linear-gradient(top, #3a86c8 0%, #2d6ca2 100%);
+  background-image: linear-gradient(to bottom, #3a86c8 0%, #2d6ca2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3a86c8', endColorstr='#ff2d6ca2', GradientType=0);
+}
+.navbar-custom-2 .navbar-brand {
+  color: #ffffff;
+}
+.navbar-custom-2 .navbar-brand:hover,
+.navbar-custom-2 .navbar-brand:focus {
+  color: #e6e6e6;
+  background-color: transparent;
+}
+.navbar-custom-2 .navbar-text {
+  color: #ffffff;
+}
+.navbar-custom-2 .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-custom-2 .navbar-nav > li > a:hover,
+.navbar-custom-2 .navbar-nav > li > a:focus {
+  color: #c0c0c0;
+  background-color: transparent;
+}
+.navbar-custom-2 .navbar-nav > .active > a,
+.navbar-custom-2 .navbar-nav > .active > a:hover,
+.navbar-custom-2 .navbar-nav > .active > a:focus {
+  color: #c0c0c0;
+  background-color: #265b88;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#265b88), to(#3175b0));
+  background-image: -webkit-linear-gradient(top, #265b88, 0%, #3175b0, 100%);
+  background-image: -moz-linear-gradient(top, #265b88 0%, #3175b0 100%);
+  background-image: linear-gradient(to bottom, #265b88 0%, #3175b0 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff265b88', endColorstr='#ff3175b0', GradientType=0);
+}
+.navbar-custom-2 .navbar-nav > .disabled > a,
+.navbar-custom-2 .navbar-nav > .disabled > a:hover,
+.navbar-custom-2 .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+.navbar-custom-2 .navbar-toggle {
+  border-color: #dddddd;
+}
+.navbar-custom-2 .navbar-toggle:hover,
+.navbar-custom-2 .navbar-toggle:focus {
+  background-color: #dddddd;
+}
+.navbar-custom-2 .navbar-toggle .icon-bar {
+  background-color: #cccccc;
+}
+.navbar-custom-2 .navbar-collapse,
+.navbar-custom-2 .navbar-form {
+  border-color: #255986;
+}
+.navbar-custom-2 .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom-2 .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #c0c0c0;
+  border-bottom-color: #c0c0c0;
+}
+.navbar-custom-2 .navbar-nav > .open > a,
+.navbar-custom-2 .navbar-nav > .open > a:hover,
+.navbar-custom-2 .navbar-nav > .open > a:focus {
+  background-color: #265b88;
+  color: #c0c0c0;
+}
+.navbar-custom-2 .navbar-nav > .open > a .caret,
+.navbar-custom-2 .navbar-nav > .open > a:hover .caret,
+.navbar-custom-2 .navbar-nav > .open > a:focus .caret {
+  border-top-color: #c0c0c0;
+  border-bottom-color: #c0c0c0;
+}
+.navbar-custom-2 .navbar-nav > .dropdown > a .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+@media (max-width: 767) {
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #c0c0c0;
+    background-color: transparent;
+  }
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #c0c0c0;
+    background-color: #265b88;
+  }
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-custom-2 .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+  }
+}
+.navbar-custom-2 .navbar-link {
+  color: #ffffff;
+}
+.navbar-custom-2 .navbar-link:hover {
+  color: #c0c0c0;
+}
 
 /*************************
 *******Footer CSS******
 **************************/
+
 
 #footer {
   background: #242d3c;
@@ -11,6 +152,10 @@
   z-index: 1030;
 }
 
+#footer.navbar{
+  margin-bottom: 0px !important;
+}
+
 
 .footer-top .container {
   border-bottom: 1px solid #E0E0DA;
@@ -18,7 +163,7 @@
 }
 
 .companyinfo {
-  margin-top: 33px;
+  margin-top: 0px;
   /*margin-left: -15px;*/
 }
 
@@ -129,12 +274,15 @@
 }
 
 .footer-widget {
-  margin-bottom: 33px;
+  /*margin-bottom: 33px;*/
+   margin-bottom: 0px;
 }
 
 .footer-widget .container {
   border-top: 1px solid #FFFFFF;
-  padding-top: 15px;
+  /*padding-top: 15px;*/
+    padding-top: 0px;
+
 }
 
 .single-widget h2 {
@@ -142,7 +290,7 @@
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  margin-bottom: 22px;
+  margin-bottom: 3px;
   text-transform: uppercase;
 }
 
@@ -208,12 +356,12 @@
 }
 
 .footer-bottom {
-  background: #D6D6D0;
-  padding-top: 15px;
+  background: #255986;
+  padding-top: 5px;
 }
 
 .footer-bottom p {
-  color: #363432;
+  color: #fff;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   margin-left: 15px;
