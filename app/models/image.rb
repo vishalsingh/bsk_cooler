@@ -15,12 +15,20 @@
 
 class Image < ActiveRecord::Base
   belongs_to :imageable, polymorphic: true
-  has_attached_file :image, styles: { big: 'x1024>',
-                                      medium: 'x300>',
-                                      thumb: 'x150>' },
-                            default_url: '/images/:style/missing.png'
+   has_attached_file :image,
+ 	:storage => :dropbox,
+ 	:dropbox_credentials => "#{Rails.root}/config/dropbox.yml",
+ 	:styles => { big: 'x1024>', medium: 'x300>', thumb: 'x150>'},    
+	:dropbox_options => {       
+	:path => proc { |style| "#{style}/#{id}_#{image.original_filename}"},      
+	:unique_filename => true   
+  	}
+	#:unique_filename => true   
+  # has_attached_file :image, styles: { big: 'x1024>',
+  #                                     medium: 'x300>',
+  #                                     thumb: 'x150>' },
+  #                           default_url: '/images/:style/missing.png'
 
-  validates_attachment :image, presence: true,
-                               size: { in: 0..10.megabytes }
+  validates_attachment :image, presence: true, size: { in: 0..10.megabytes }
   validates_attachment_content_type :image, content_type: /image/
 end

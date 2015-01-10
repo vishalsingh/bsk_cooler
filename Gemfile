@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "paperclip-dropbox", ">= 1.1.7"
+
 gem 'bootstrap-sass', '~> 3.1.1.1'
 
 # Pagination

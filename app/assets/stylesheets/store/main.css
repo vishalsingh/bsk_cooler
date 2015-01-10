@@ -149,6 +149,7 @@
   position: absolute;
   right: 0;
   left: 0;
+  /*bottom:0;*/
   z-index: 1030;
 }
 
@@ -158,8 +159,11 @@
 
 
 .footer-top .container {
-  border-bottom: 1px solid #E0E0DA;
-  padding-bottom: 20px;
+  border-bottom: 0px solid #E0E0DA;
+  /*padding-bottom: 20px;*/
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .companyinfo {
@@ -275,11 +279,11 @@
 
 .footer-widget {
   /*margin-bottom: 33px;*/
-   margin-bottom: 0px;
+   margin-bottom: 5px;
 }
 
 .footer-widget .container {
-  border-top: 1px solid #FFFFFF;
+  border-top: 0px solid #FFFFFF;
   /*padding-top: 15px;*/
     padding-top: 0px;
 
@@ -290,7 +294,7 @@
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  margin-bottom: 3px;
+  margin-bottom: 8px;
   text-transform: uppercase;
 }
 
