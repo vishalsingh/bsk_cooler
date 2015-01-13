@@ -22,7 +22,8 @@ class Image < ActiveRecord::Base
 	:dropbox_options => {       
 	:path => proc { |style| "#{style}/#{id}_#{image.original_filename}"},      
 	:unique_filename => true   
-  	}
+  	},
+  :dropbox_visibility => 'public'
 	#:unique_filename => true   
   # has_attached_file :image, styles: { big: 'x1024>',
   #                                     medium: 'x300>',
