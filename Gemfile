@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem "paperclip-dropbox", ">= 1.1.7"
+#gem "paperclip-dropbox", ">= 1.1.7"
+gem 'paperclip-googledrive'
 
 gem 'bootstrap-sass', '~> 3.1.1.1'
 
@@ -10,7 +11,7 @@ gem 'will_paginate-bootstrap', '~> 1.0.0'
 
 gem 'breadcrumbs_on_rails', '~> 2.3.0'
 
-gem 'paperclip', '~> 4.2.0'
+gem 'paperclip', '~> 3.4'
 
 # Search forms against your application's models
 gem 'ransack', '~> 1.2.3'

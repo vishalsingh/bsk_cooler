@@ -15,15 +15,24 @@
 
 class Image < ActiveRecord::Base
   belongs_to :imageable, polymorphic: true
-   has_attached_file :image,
- 	:storage => :dropbox,
- 	:dropbox_credentials => "#{Rails.root}/config/dropbox.yml",
- 	:styles => { big: 'x1024>', medium: 'x300>', thumb: 'x150>'},    
-	:dropbox_options => {       
-	:path => proc { |style| "#{style}/#{id}_#{image.original_filename}"},      
-	:unique_filename => true   
-  	},
-  :dropbox_visibility => 'public'
+
+  has_attached_file :image,
+    :storage => :google_drive,
+    :google_drive_credentials => "#{Rails.root}/config/google_drive.yml",
+    :styles => { big: 'x1024>', medium: 'x300>', thumb: 'x150>'},
+    :google_drive_options => {
+      :public_folder_id => "0Bzc17J5i-YOUfjhiaXF2WG5MNTBaUklLemtDa3hTMS1pMUwwX2lZdzRFVk5aNzhpUVRjaVE",
+      :path => proc { |style| "#{style}_#{id}_#{image.original_filename}" }
+    }
+ #   has_attached_file :image,
+ # 	:storage => :dropbox,
+ # 	:dropbox_credentials => "#{Rails.root}/config/dropbox.yml",
+ # 	:styles => { big: 'x1024>', medium: 'x300>', thumb: 'x150>'},    
+	# :dropbox_options => {       
+	# :path => proc { |style| "#{style}/#{id}_#{image.original_filename}"},      
+	# :unique_filename => true   
+ #  	},
+ #  :dropbox_visibility => 'public'
 	#:unique_filename => true   
   # has_attached_file :image, styles: { big: 'x1024>',
   #                                     medium: 'x300>',
