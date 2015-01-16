@@ -39,7 +39,7 @@ class Image < ActiveRecord::Base
   #                                     thumb: 'x150>' },
   #                           default_url: '/images/:style/missing.png'
 
-  validates_attachment :image, presence: true, size: { in: 0..10.megabytes }
+  #validates_attachment :image, presence: true, size: { in: 0..10.megabytes }
   #validates :image, :image_content_type => { :content_type => ['image/png', 'image/jpg']}
   #validates_attachment_content_type :image, content_type: /image/
  # do_not_validate_attachment_file_type :image
