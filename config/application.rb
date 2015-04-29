@@ -24,6 +24,7 @@ module Ecomm
     # Precompile additional assets.
     # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     config.generators do |g|
       g.test_framework :rspec

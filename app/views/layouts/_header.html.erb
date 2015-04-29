@@ -1,0 +1,178 @@
+<!--/ %nav#navbar.navbar.navbar-fixed-top.navbar-default{:role => "navigation"}
+/   .container
+/     .navbar-header
+/       %button.navbar-toggle{"data-target" => "#main-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+/         %span.sr-only
+/           = t('common.toggle_menu')
+/           Toggle navigation
+/       %i.glyphicon.glyphicon-earphone.navbar-brand
+/         91-9988875133
+/       / = link_to t('common.store_name'), root_path, class: 'navbar-brand'
+/     #main-navbar-collapse.collapse.navbar-collapse
+/       %ul.nav.navbar-nav
+/         - visible_pages.each do |page|
+/           - if page.link_type == true
+/             %li{ class: current_page?(page_path(id: page.seo_url)) && 'active'}
+/               = link_to page.title, page_path(id: page.seo_url)
+/       %ul.nav.navbar-nav.navbar-right
+/         %li= render 'layouts/user_widget'
+-->
+<header id="header"><!--header-->
+  <div class="header_top"><!--header_top-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="contactinfo">
+            <ul class="nav nav-pills">
+              <li><a href="#"><i class="fa fa-phone"></i> +91-9988875133</a></li>
+              <li><a href="#"><i class="fa fa-envelope"></i> bskkurali@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="social-icons pull-right">
+            <ul class="nav navbar-nav">
+              <li><a href="https://www.facebook.com/sharer.php?u=http://bskcoolers.in/" title="Share on Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://plus.google.com/share?url=http://bskcoolers.in/" title="Share on Google+" target="_blank" ><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="mailto:bskkurali@gmail.com"><i class="fa fa-dribbble"></i></a></li>
+              <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
+              <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa fa-dribbble"></i></a></li> -->
+              <!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/header_top-->
+  
+  <div class="header-middle"><!--header-middle-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="logo pull-left">
+            <%= link_to image_tag('logo.jpg'), root_path %>
+          </div>
+          <!-- <div class="btn-group pull-right"> -->
+            <!-- <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                USA
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Canada</a></li>
+                <li><a href="#">UK</a></li>
+              </ul>
+            </div>  -->
+            
+            <!-- <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                DOLLAR
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Canadian Dollar</a></li>
+                <li><a href="#">Pound</a></li>
+              </ul>
+            </div> -->
+          <!-- </div> -->
+        </div>
+        <div class="col-sm-8">
+          <div class="shop-menu pull-right">
+            <ul class="nav navbar-nav">
+              <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+              <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+              <!-- <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
+              <%if cart_widget_visible? %>
+                <li><%= link_to cart_items_path, remote: true do %>
+                  <%= glyphicon('glyphicon-shopping-cart', text: t('store.my_cart_link_text') + ' ' + badge_span(current_cart.cart_items.count, id: 'cart-items-count')) %>
+                <% end %></li>
+              <%end%>
+
+              <!-- <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li> -->
+              <% if user_signed_in? %>
+                <% if current_user.try(:admin) %>
+                  <li>
+                    <%= link_to t('admin.common.admin_panel'), admin_path %>
+                  </li>
+                  <li class: "#{current_page?(edit_user_registration_path) && 'active'}" >
+                    <%= link_to t('common.profile'), edit_user_registration_path %>
+                  </li>
+                  <li>
+                    <%= link_to t('common.sign_out'), destroy_user_session_path%>
+                  </li>
+                <%end%>
+              <%else%>
+                <%# unless AppConfig.authentication_disabled %>
+                  <li class= "#{current_page?(new_user_session_path) && 'active'}">
+                   <%= link_to "<i class='fa fa-lock'></i> Login</a>".html_safe, new_user_session_path %>
+                  </li>
+                <%#end%>
+              <%end%>
+
+              <!-- <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/header-middle-->
+
+  <div class="header-bottom"><!--header-bottom-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="mainmenu pull-left">
+            <ul class="nav navbar-nav collapse navbar-collapse">
+              <li><%= link_to "Home", root_path %></li>
+              <% visible_pages.each do |page| %>
+                <% if page.link_type == true %>
+                  <li  class= "#{current_page?(page_path(id: page.seo_url)) && 'active'}">
+                    <%= link_to page.title, page_path(id: page.seo_url)%>
+                  </li>
+                <%end%>
+              <%end%>
+
+             <!--  <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                  <ul role="menu" class="sub-menu">
+                                      <li><a href="shop.html">Products</a></li>
+                  <li><a href="product-details.html">Product Details</a></li> 
+                  <li><a href="checkout.html">Checkout</a></li> 
+                  <li><a href="cart.html">Cart</a></li> 
+                  <li><a href="login.html">Login</a></li> 
+                                  </ul>
+                              </li> 
+              <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                                  <ul role="menu" class="sub-menu">
+                                      <li><a href="blog.html">Blog List</a></li>
+                  <li><a href="blog-single.html">Blog Single</a></li>
+                                  </ul>
+                              </li> 
+              <li><a href="404.html">404</a></li>
+              <li><a href="contact-us.html">Contact</a></li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+
+          <div class="search_box pull-right">
+            
+              <%= render 'layouts/search_form' %>
+          </div>
+          <!-- <div class=" pull-right">
+            
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div><!--/header-bottom-->
+</header><!--/header-->
