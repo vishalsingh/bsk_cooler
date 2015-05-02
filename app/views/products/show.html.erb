@@ -1,0 +1,179 @@
+<style type="text/css">
+/* CSS used here will be applied after bootstrap.css */
+.carousel {
+    margin-top: 20px;
+}
+.item .thumb {
+  width: 25%;
+  cursor: pointer;
+  float: left;
+}
+.item .thumb img {
+  width: 100%;
+  margin: 2px;
+}
+.item img {
+  width: 100%;  
+}
+
+</style>  
+<%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder %>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <%= render "layouts/left_sidebar"%>
+        </div>  
+        <div class="col-sm-9 padding-right">
+          <div class="product-details"><!--product-details-->
+            <div class="col-sm-5">
+              <div id="carousel" class="carousel slide" data-ride="carousel">
+                <div class="view-product">
+                  <div class="carousel-inner">
+                    <% if @product.images.any? %> 
+                      <% @product.images.each.with_index do |img, index| %>
+                        <% if index == 0 %>
+                        <div class="item active">
+                        <% else %>
+                        <div class="item">
+                        <% end %>
+                           <%= image_tag img.image.url, class: 'img-responsive' %>
+                        </div>
+                      <% end %>
+                    <%else%>
+                      <%= image_tag ('missing.png'), class: 'media-object'  %>
+                    <% end %>                   
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div id="similar-product" class="carousel slide" data-ride="carousel">
+                    <% if @product.images.any? %>  
+                      <div class="carousel-inner">
+                        
+                          <%@product.images.each_with_index do |item_image,i| %>
+                            <% if i == 0 || i==1 || i==2 %>
+                            <div class="item active">
+                            <% else %>
+                            <div class="item">
+                            <% end %>
+                             <div data-target="#carousel" data-slide-to="<%=i%>" class="thumb"><%= image_tag(item_image.image.url ) %></div>
+                          </div>
+                          <%end%>
+                        </div><!-- /carousel-inner -->
+                        <% if @product.images.count > 3 %>
+                          <a class="left item-control" href="#similar-product" data-slide="prev">
+                              <i class="fa fa-angle-left"></i>
+                              </a>
+                              <a class="right item-control" href="#similar-product" data-slide="next">
+                              <i class="fa fa-angle-right"></i>
+                          </a>
+                        <%end%>
+                    <%end%>
+                </div> <!-- /thumbcarousel -->
+              </div><!-- /clearfix --> 
+            </div>
+            <div class="col-sm-7">
+              <div class="product-information"><!--/product-information-->
+                <!-- <img src="images/product-details/new.jpg" class="newarrival" alt="" /> -->
+                <h2><%= @product.name %></h2>
+                <p class="text-muted"><%= "#{t('store.product_code')}: #{@product.id}" %></p>
+                <!-- <img src="images/product-details/rating.png" alt="" /> -->
+                <span>
+                  <span><%= number_to_currency @product.price %></span>
+                  <!-- <label>Quantity:</label>
+                  <input type="text" value="3" /> -->
+                  <% if @product.in_stock? %>
+                    <%= link_to "<i class='fa fa-shopping-cart'></i> #{t('store.add_to_cart_button_text')}".html_safe, cart_items_path(product_id: @product.id), class: 'btn btn-default cart ', remote: true, method: :post %>
+                  <%end%>
+                     
+                </span>
+                <p><b>Availability:</b> <%= @product.in_stock? ? "In Stock": t('store.out_of_stock') %></p>
+                <p><b>Brand:</b> <%= @product.brand.name if !@product.brand.blank?%></p>
+                <!-- <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a> -->
+              </div><!--/product-information-->
+            </div>
+          </div><!--/product-details-->
+          
+          <div class="category-tab shop-details-tab"><!--category-tab-->
+            <div class="col-sm-12">
+              <ul class="nav nav-tabs">
+                <li><a href="#details" data-toggle="tab">Details</a></li>
+                <li class="active"><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane fade" id="details" >
+                <div class="col-md-6">
+                  <div>
+                    <h3>
+                      <%= t('store.description') %>
+                    </h3>
+                    <p>
+                      <%= @product.description %>
+                    </p>
+                  </div>
+                  <% if @product.product_attribute_values.any? { |attr| !attr.value.blank? } %>
+                    <div>
+                      <h3>
+                        <%= t('store.specifications') %>
+                      </h3>
+                      <p>
+                        <dl class="dl-horizontal">
+                          <% @product.product_attribute_values.each do |attrib| %>
+                            <% unless attrib.value.blank? %>
+                              <dt>
+                                <%= attrib.name %>
+                              </dt>
+                              <dd>
+                                <%= attrib.value %>
+                              </dd>
+                            <% end %>
+                          <% end %>
+                        </dl>
+                      </p>
+                    </div>
+                  <% end %>
+                </div>
+
+              </div>
+              
+              <div class="tab-pane fade active in" id="reviews" >
+                <div class="col-sm-12">
+                  <ul>
+                    <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
+                    <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+                    <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+                  </ul>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                  <p><b>Write Your Review</b></p>
+                  
+                  <form action="#">
+                    <span>
+                      <input type="text" placeholder="Your Name"/>
+                      <input type="email" placeholder="Email Address"/>
+                    </span>
+                    <textarea name="" ></textarea>
+                    <!-- <b>Rating: </b> <img src="images/product-details/rating.png" alt="" /> -->
+                    <button type="button" class="btn btn-default pull-right">
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+              
+            </div>
+          </div><!--/category-tab-->
+          
+        </div>
+      </div>
+    </div>
+    <div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <ul class="list-inline item-details">
+          <li><a href="http://themifycloud.com">Ecommerce templates</a></li>
+          <li><a href="http://themescloud.org">Ecommerce themes</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
