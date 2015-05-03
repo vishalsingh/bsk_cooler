@@ -378,6 +378,7 @@ DEPENDENCIES
   font-awesome-rails
   haml (~> 4.0.5)
   haml-rails
+  hitimes (= 1.2.2)
   jquery-middleman
   jquery-rails
   jquery-turbolinks
