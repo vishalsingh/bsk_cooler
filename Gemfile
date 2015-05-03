@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 #gem "paperclip-dropbox", ">= 1.1.7"
 gem 'paperclip-googledrive'
 
-gem 'bootstrap-sass', '~> 3.3.2'
+gem 'bootstrap-sass', '3.1.1.0'
 
 # Pagination
 gem 'will_paginate', '~> 3.0.5'
