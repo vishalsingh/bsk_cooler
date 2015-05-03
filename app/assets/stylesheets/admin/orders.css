@@ -1,0 +1,12 @@
+tr.order-completed {
+  color: #9c9c9c;
+}
+
+tr.order-canceled {
+  color: #9c9c9c;
+  text-decoration: line-through
+}
+
+#map-delivery {
+  height: 300px;
+}
