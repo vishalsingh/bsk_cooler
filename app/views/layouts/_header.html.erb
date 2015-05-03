@@ -81,12 +81,14 @@
         <div class="col-sm-8">
           <div class="shop-menu pull-right">
             <ul class="nav navbar-nav">
-              <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                  <li class= "<%= current_page?(edit_user_registration_path) && 'active'%>">
+                   <%= link_to "<i class='fa fa-user'></i>Account</a>".html_safe, edit_user_registration_path %>
+                  </li>
               <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
               <!-- <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
               <%if cart_widget_visible? %>
                 <li><%= link_to cart_items_path, remote: true do %>
-                  <%= glyphicon('glyphicon-shopping-cart', text: t('store.my_cart_link_text') + ' ' + badge_span(current_cart.cart_items.count, id: 'cart-items-count')) %>
+                  <%= glyphicon('', text: t('store.my_cart_link_text') + ' ' + badge_span(current_cart.cart_items.count, id: 'cart-items-count')) %>
                 <% end %></li>
               <%end%>
 
@@ -96,16 +98,17 @@
                   <li>
                     <%= link_to t('admin.common.admin_panel'), admin_path %>
                   </li>
-                  <li class: "#{current_page?(edit_user_registration_path) && 'active'}" >
+                  <li class: "<%= current_page?(edit_user_registration_path) && 'active' %>" >
                     <%= link_to t('common.profile'), edit_user_registration_path %>
                   </li>
-                  <li>
-                    <%= link_to t('common.sign_out'), destroy_user_session_path%>
-                  </li>
+                  
                 <%end%>
+                <li>
+                  <%= link_to "Logout", destroy_user_session_path%>
+                </li>
               <%else%>
                 <%# unless AppConfig.authentication_disabled %>
-                  <li class= "#{current_page?(new_user_session_path) && 'active'}">
+                  <li class= "<%= current_page?(new_user_session_path) && 'active'%>">
                    <%= link_to "<i class='fa fa-lock'></i> Login</a>".html_safe, new_user_session_path %>
                   </li>
                 <%#end%>
