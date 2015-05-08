@@ -10,41 +10,27 @@
           </ol>
           
           <div class="carousel-inner">
-            <div class="item active">
-              <div class="col-sm-6">
-                <h1><span>BSK</span>-Coolers</h1>
-                <h2>Free E-Commerce Template</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                <button type="button" class="btn btn-default get">Get it now</button>
-              </div>
-              <div class="col-sm-6">
-                <%= image_tag ('missing.png'), class: 'girl img-responsive'  %>
-              </div>
-            </div>
-            <div class="item">
-              <div class="col-sm-6">
-                <h1><span>BSK</span>-Coolers</h1>
-                <h2>100% Responsive Design</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                <button type="button" class="btn btn-default get">Get it now</button>
-              </div>
-              <div class="col-sm-6">
-                <%= image_tag ('missing.png'), class: 'girl img-responsive'  %>
-              </div>
-            </div>
-            
-            <div class="item">
-              <div class="col-sm-6">
-                <h1><span>BSK</span>-Coolers</h1>
-                <h2>Free Ecommerce Template</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                <button type="button" class="btn btn-default get">Get it now</button>
-              </div>
-              <div class="col-sm-6">
-                <%= image_tag ('missing.png'), class: 'girl img-responsive'  %>
-              </div>
-            </div>
-            
+            <% @products.where(feature: true).each_with_index do|product,index|  %>
+              <% if index == 0 %>
+              <div class="item active">
+              <% else %>
+              <div class="item">
+              <% end %>
+                <div class="col-sm-6">
+                  <h1><span><%= product.name%></span></h1>
+                  <h3><%= number_to_currency product.price %></h3>
+                  <p><%= product.description.truncate(60) %></p>
+                  <%= link_to "Get it now", seo_product_path(product, product.seo_name),class: "btn btn-default get" %>
+                </div>
+                <div class="col-sm-6">
+                  <% if product.images.any? %>
+                    <%= image_tag (product.images.first.image), class: 'girl img-responsive'  %>
+                  <%else%>
+                   <%= image_tag ('missing.png'), class: 'girl img-responsive'  %>
+                  <%end%>
+                </div>
+              </div>       
+            <%end%>
           </div>
           
           <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">

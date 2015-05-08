@@ -16,6 +16,12 @@
     .form-group
       = f.check_box :track_inventory
       = f.label :track_inventory
+    .form-group
+      = f.check_box :feature
+      = f.label :feature
+    .form-group
+      = f.check_box :on_slide
+      = f.label :on_slide
     #inventory-fields.form-group
       = f.label :quantity
       = f.text_field :quantity, class: 'form-control'

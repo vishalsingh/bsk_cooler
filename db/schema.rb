@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227170344) do
+ActiveRecord::Schema.define(version: 20150508183814) do
 
   create_table "addresses", force: true do |t|
     t.string   "city"
@@ -197,6 +197,8 @@ ActiveRecord::Schema.define(version: 20141227170344) do
     t.datetime "updated_at"
     t.boolean  "track_inventory",                          default: false
     t.integer  "quantity",                                 default: 0
+    t.boolean  "feature",                                  default: false
+    t.boolean  "on_slide",                                 default: false
   end
 
   add_index "products", ["active"], name: "index_products_on_active", using: :btree
