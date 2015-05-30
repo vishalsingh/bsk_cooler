@@ -79,6 +79,7 @@ end
 group :production do
   #gem 'pg'
   gem 'unicorn', '~> 4.8.3'
+  gem 'passenger'
   gem 'redis-rails'
 end
 
