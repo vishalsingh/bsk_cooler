@@ -8,15 +8,15 @@
 
 # Store initial data
 
-Category.create(name: 'Default', description: 'Default category', active: true)
+Category.create(name: 'Coolers', description: 'Default category', active: true)
 
-Brand.create(name: 'Default', description: 'Default category')
+Brand.create(name: 'Bsk', description: 'Cooler Category')
 
 Page.create(title: 'About', text: 'Default page', seo_url: 'about')
 
-User.create(email: 'paul@live.ru',
-            first_name: 'Pavel',
-            last_name: 'D',
-            password: '12345',
-            password_confirmation: '12345',
+User.create(email: 'bskkurali@gmail.com',
+            first_name: 'Varun',
+            last_name: 'Singh',
+            password: 'varun12345',
+            password_confirmation: 'varun12345',
             admin: true)
